@@ -1,0 +1,32 @@
+.form-wrapper {
+  height: calc(100vh - 56px);
+
+  form {
+    flex-basis: 50%;
+  }
+
+  .invalid {
+    border: 1px solid red;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .form {
+    position: relative;
+
+    .alert {
+      position: absolute;
+      bottom: -90px;
+      left: 0;
+      right: 0;
+      width: 100%;
+    }
+  }
+
+  .error-message {
+    color: red;
+    margin-top: 5px;
+  }
+}
