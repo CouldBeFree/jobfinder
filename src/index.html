@@ -1,12 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Job finder</title>
+	<meta charset="UTF-8">
+	<title>Job finder</title>
+	<link rel="stylesheet" href="style.scss">
 </head>
-<body>
-  <div class="container">
-    <h1>Home page</h1>
-  </div>
+<body id="bootstrap-overrides" data-path="/" cz-shortcut-listen="true">
+	<img src="images/banner.jpg" alt="">
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-dark">
+			<a class="navbar-brand pl-sm-4" href="/"><img class="mr-2"
+					src="images/logo.ico" alt="">Findwork</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="fa fa-bars"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbar-collapse">
+				<div class="navbar-nav">
+					<li class="nav-item mt-1 mt-md-0 mr-2 active">
+						<a class="nav-link nav-text" href="/">All jobs</a>
+					</li>
+					<li class="nav-item mt-1 mt-md-0 mr-2 ">
+						<a class="nav-link nav-text" href="/blog/">Blog</a>
+					</li>
+					<li class="nav-item mt-1 mt-md-0 mr-2 ">
+						<a class="nav-link nav-text" href="/developers/">Developers</a>
+					</li>
+					<li class="nav-item mt-1 mt-md-0 mr-2 ">
+						<a class="btn  btn-dark btn-rounded mr-md-2" href="/pricing">Post a job</a>
+					</li>
+					<li class="nav-item mt-1 mt-md-0 mr-2 ">
+						<a class="btn  btn-primary btn-rounded mr-md-2" href="/subscription/new">Subscribe</a>
+					</li>
+					<li class="nav-item mt-1 mt-md-0 mr-2 ">
+						<a class="nav-link nav-text" href="/accounts/login/">Log In</a>
+					</li>
+				</div>
+			</div>
+		</nav>
+		<button type="button" id="feedback-btn" class="btn btn-info vertical-right-aligned">
+			<i class="fa fa-bullhorn mr-1" aria-hidden="true"></i> Feedback
+		</button>
+		<div class="body-wrapper pb-5 mb-3">
+			<div class="bg-core d-flex justify-content-center">
+				<div class="row col-md-12 col-xxl-10 pr-3 pl-3 mt-5 mt-lg-0 mb-5 mb-lg-0">
+					<div class="col-lg-6 d-flex justify-content-center align-items-center">
+						<div class="pl-lg-5 col-lg-11">
+							<h2>Tired of searching for remote jobs on multiple pages? Just use findwork.dev.</h2>
+							<h4 class="mb-4 mt-4 text-gray-800">We’ve done the hard work for you of searching and
+								filtering the latest in remote jobs.</h4>
+							<div class="d-lg-flex">
+								<a class="btn btn-primary btn-rounded mr-md-2" href="/subscription/new">Subscribe</a>
+								<h4 class="mt-3 mt-lg-0 align-self-end ml-3 unique">Join our +10,000 monthly users!</h4>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<img class="w-100" src="images/banner.jpg" alt="Findwork.dev">
+					</div>
+				</div>
+			</div>
+			<div class="body-container">
+				<form method="GET" action="/" class="filter-form mb-2">
+					<div class="input-group search-wrapper mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text search-prepend" id="id_search"><i
+									class="fas fa-search"></i></span>
+						</div>
+						<input id="id_search" type="text" name="search" value="" placeholder="Search by keyword"
+							data-original-title="Use OR to match any of the keywords. By default SQL AND will be used."
+							data-toggle="tooltip" data-placement="bottom" data-hj-whitelist=""
+							class="searchbar form-control form-control-lg">
+					</div>
+					<div class="form-row justify-content-center mt-3 mt-md-4 pb-5">
+						<input type="hidden" id="id_remote" name="remote" value="">
+						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
+							<span class="btn btn-outline-primary  filter-option" data-value="true"
+								data-input-id="id_remote">
+								<span class="ml-1">Remote</span>
+							</span>
+						</div>
+						<input type="hidden" id="id_employment_type" name="employment_type" value="">
+						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
+							<div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
+								aria-expanded="false">
+								<span class="ml-2">Employment</span>
+								<i class="fa fa-caret-down"></i>
+							</div>
+							<div class="dropdown-menu dropdown-menu-right">
+								<span class="dropdown-item btn-sm filter-option" data-value="full time"
+									data-input-id="id_employment_type">
+									<span class="ml-2">Full time</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="contract"
+									data-input-id="id_employment_type">
+									<span class="ml-2">Part time / Contract</span>
+								</span>
+								<div class="dropdown-divider"></div>
+								<span class="dropdown-item btn-sm filter-option" data-value=""
+									data-input-id="id_employment_type">
+									<span class="ml-2">Remove Filter</span>
+								</span>
+							</div>
+						</div>
+						<input type="hidden" id="id_source" name="source" value="">
+						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
+							<div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
+								aria-expanded="false">
+								<span class="ml-2">Source</span>
+								<i class="fa fa-caret-down"></i>
+							</div>
+							<div class="dropdown-menu dropdown-menu-right">
+								<span class="dropdown-item btn-sm filter-option" data-value="hn"
+									data-input-id="id_source">
+									<img src="/static/jobs/images/hn_icon.ea1c7dfcfd88.png" class="source-icon"
+										alt="Hacker News">
+									<span class="ml-2">Hacker News</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="github"
+									data-input-id="id_source">
+									<img src="/static/jobs/images/github_icon.d81904407808.png" class="source-icon"
+										alt="Github">
+									<span class="ml-2">Github</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="stackoverflow"
+									data-input-id="id_source">
+									<img src="/static/jobs/images/stackoverflow_icon.9708ea51508a.png"
+										class="source-icon" alt="Stack Overflow">
+									<span class="ml-2">Stack Overflow</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="remoteok"
+									data-input-id="id_source">
+									<img src="/static/jobs/images/remoteok_icon.19a644132a6a.png" class="source-icon"
+										alt="Remote OK">
+									<span class="ml-2">Remote OK</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="weworkremotely"
+									data-input-id="id_source">
+									<img src="/static/jobs/images/weworkremotely_icon.60d383d38750.png"
+										class="source-icon" alt="WeWorkRemotely">
+									<span class="ml-2">WeWorkRemotely</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="dribbble"
+									data-input-id="id_source">
+									<img src="/static/jobs/images/dribbble_icon.4d4c6913eb83.png" class="source-icon"
+										alt="Dribbble">
+									<span class="ml-2">Dribbble</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="coroflot"
+									data-input-id="id_source">
+									<img src="/static/jobs/images/coroflot_icon.d61a7a3271d7.png" class="source-icon"
+										alt="Coroflot">
+									<span class="ml-2">Coroflot</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="berlinstartupjobs"
+									data-input-id="id_source">
+									<img src="/static/jobs/images/berlinstartupjobs_icon.1dd76c297ce4.png"
+										class="source-icon" alt="Berlin Startup Jobs">
+									<span class="ml-2">Berlin Startup Jobs</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="cncf"
+									data-input-id="id_source">
+									<img src="/static/jobs/images/cncf_icon.cd93775d5345.png" class="source-icon"
+										alt="Cloud Native Computing">
+									<span class="ml-2">Cloud Native Computing</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="cryptocurrencyjobs"
+									data-input-id="id_source">
+									<img src="/static/jobs/images/cryptocurrencyjobs_icon.4b141e087863.png"
+										class="source-icon" alt="Cryptocurrencyjobs.co">
+									<span class="ml-2">Cryptocurrencyjobs.co</span>
+								</span>
+								<div class="dropdown-divider"></div>
+								<span class="dropdown-item btn-sm filter-option" data-value=""
+									data-input-id="id_source">
+									<span class="ml-2">Remove Filter</span>
+								</span>
+							</div>
+						</div>
+						<input type="hidden" id="id_funding" name="funding" value="">
+						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
+							<div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
+								aria-expanded="false">
+								<span class="ml-2">Funding</span>
+								<i class="fa fa-caret-down"></i>
+							</div>
+							<div class="dropdown-menu dropdown-menu-right">
+								<span class="dropdown-item btn-sm filter-option" data-value="0-10"
+									data-input-id="id_funding">
+									<span class="ml-2">$0-10M</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="11-50"
+									data-input-id="id_funding">
+									<span class="ml-2">$11-50M</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="51-200"
+									data-input-id="id_funding">
+									<span class="ml-2">$51-200M</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="201-500"
+									data-input-id="id_funding">
+									<span class="ml-2">$201-500M</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="500"
+									data-input-id="id_funding">
+									<span class="ml-2">&gt;$500M</span>
+								</span>
+								<div class="dropdown-divider"></div>
+								<span class="dropdown-item btn-sm filter-option" data-value=""
+									data-input-id="id_funding">
+									<span class="ml-2">Remove Filter</span>
+								</span>
+							</div>
+						</div>
+						<input type="hidden" id="id_glassdoor_rating__gte" name="glassdoor_rating__gte" value="">
+						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
+							<div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
+								aria-expanded="false">
+								<span class="ml-2">Glassdoor rating</span>
+								<i class="fa fa-caret-down"></i>
+							</div>
+							<div class="dropdown-menu dropdown-menu-right">
+								<span class="dropdown-item btn-sm filter-option" data-value="1"
+									data-input-id="id_glassdoor_rating__gte">
+									<span class="ml-2">1+</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="2"
+									data-input-id="id_glassdoor_rating__gte">
+									<span class="ml-2">2+</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="3"
+									data-input-id="id_glassdoor_rating__gte">
+									<span class="ml-2">3+</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="4"
+									data-input-id="id_glassdoor_rating__gte">
+									<span class="ml-2">4+</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="5"
+									data-input-id="id_glassdoor_rating__gte">
+									<span class="ml-2">5</span>
+								</span>
+								<div class="dropdown-divider"></div>
+								<span class="dropdown-item btn-sm filter-option" data-value=""
+									data-input-id="id_glassdoor_rating__gte">
+									<span class="ml-2">Remove Filter</span>
+								</span>
+							</div>
+						</div>
+						<input type="hidden" id="id_employees" name="employees" value="">
+						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
+							<div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
+								aria-expanded="false">
+								<span class="ml-2">Employees</span>
+								<i class="fa fa-caret-down"></i>
+							</div>
+							<div class="dropdown-menu dropdown-menu-right">
+								<span class="dropdown-item btn-sm filter-option" data-value="1-10"
+									data-input-id="id_employees">
+									<span class="ml-2">1-10</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="11-50"
+									data-input-id="id_employees">
+									<span class="ml-2">11-50</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="51-100"
+									data-input-id="id_employees">
+									<span class="ml-2">51-100</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value="101-250"
+									data-input-id="id_employees">
+									<span class="ml-2">101-250</span>
+								</span>
+								<span class="dropdown-item btn-sm filter-option" data-value=">250"
+									data-input-id="id_employees">
+									<span class="ml-2">&gt;250</span>
+								</span>
+								<div class="dropdown-divider"></div>
+								<span class="dropdown-item btn-sm filter-option" data-value=""
+									data-input-id="id_employees">
+									<span class="ml-2">Remove Filter</span>
+								</span>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div class="row m-0 mb-4 col-12">
+					<div class="col-6 col-lg-3 pl-2 pr-2 mt-4 category">
+						<a href="/?search=category:devops&amp;date_range__gte=7"
+							class="rounded-lg d-block p-2 pl-md-3 pr-md-3">
+							<img src="images/devops.png" class="float-right"
+								alt="DevOps">
+							<small class="d-block pt-5">DevOps</small>
+							<p class="overline m-0 pb-2">334 new jobs this week</p>
+						</a>
+					</div>
+					<div class="col-6 col-lg-3 pl-2 pr-2 mt-4 category">
+						<a href="/?search=category:frontend&amp;date_range__gte=7"
+							class="rounded-lg d-block p-2 pl-md-3 pr-md-3">
+							<img src="images/frontend.png" class="float-right"
+								alt="Frontend Development">
+							<small class="d-block pt-5">Frontend Development</small>
+							<p class="overline m-0 pb-2">180 new jobs this week</p>
+						</a>
+					</div>
+					<div class="col-6 col-lg-3 pl-2 pr-2 mt-4 category">
+						<a href="/?search=category:python&amp;date_range__gte=7"
+							class="rounded-lg d-block p-2 pl-md-3 pr-md-3">
+							<img src="images/python.png" class="float-right"
+								alt="Python">
+							<small class="d-block pt-5">Python</small>
+							<p class="overline m-0 pb-2">124 new jobs this week</p>
+						</a>
+					</div>
+					<div class="col-6 col-lg-3 pl-2 pr-2 mt-4 category">
+						<a href="/?search=category:backend&amp;date_range__gte=7"
+							class="rounded-lg d-block p-2 pl-md-3 pr-md-3">
+							<img src="images/backend.png" class="float-right"
+								alt="Backend Development">
+							<small class="d-block pt-5">Backend Development</small>
+							<p class="overline m-0 pb-2">368 new jobs this week</p>
+						</a>
+					</div>
+					<div class="col-6 col-lg-3 pl-2 pr-2 mt-4 category">
+						<a href="/?search=category:cms&amp;date_range__gte=7"
+							class="rounded-lg d-block p-2 pl-md-3 pr-md-3">
+							<img src="images/cms.png" class="float-right"
+								alt="CMS">
+							<small class="d-block pt-5">CMS</small>
+							<p class="overline m-0 pb-2">90 new jobs this week</p>
+						</a>
+					</div>
+					<div class="col-6 col-lg-3 pl-2 pr-2 mt-4 category">
+						<a href="/?search=category:marketing&amp;date_range__gte=7"
+							class="rounded-lg d-block p-2 pl-md-3 pr-md-3">
+							<img src="images/marketing.png" class="float-right"
+								alt="Digital Marketing">
+							<small class="d-block pt-5">Digital Marketing</small>
+							<p class="overline m-0 pb-2">166 new jobs this week</p>
+						</a>
+					</div>
+					<div class="col-6 col-lg-3 pl-2 pr-2 mt-4 category">
+						<a href="/?search=category:mobile&amp;date_range__gte=7"
+							class="rounded-lg d-block p-2 pl-md-3 pr-md-3">
+							<img src="images/mobile.png" class="float-right"
+								alt="Mobile Development">
+							<small class="d-block pt-5">Mobile Development</small>
+							<p class="overline m-0 pb-2">54 new jobs this week</p>
+						</a>
+					</div>
+					<div class="col-6 col-lg-3 pl-2 pr-2 mt-4 category">
+						<a href="/?search=category:design&amp;date_range__gte=7"
+							class="rounded-lg d-block p-2 pl-md-3 pr-md-3">
+							<img src="images/design.png" class="float-right"
+								alt="Design">
+							<small class="d-block pt-5">Design</small>
+							<p class="overline m-0 pb-2">340 new jobs this week</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
