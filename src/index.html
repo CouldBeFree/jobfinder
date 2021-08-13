@@ -3,7 +3,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Job finder</title>
-	<link rel="stylesheet" href="style.scss">
 </head>
 <body id="bootstrap-overrides" data-path="/" cz-shortcut-listen="true">
 	<img src="images/banner.jpg" alt="">
@@ -82,30 +81,29 @@
 						</div>
 						<input type="hidden" id="id_employment_type" name="employment_type" value="">
 						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
-							<div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
-								aria-expanded="false">
-								<span class="ml-2">Employment</span>
-								<i class="fa fa-caret-down"></i>
-							</div>
-							<div class="dropdown-menu dropdown-menu-right">
-								<span class="dropdown-item btn-sm filter-option" data-value="full time"
-									data-input-id="id_employment_type">
-									<span class="ml-2">Full time</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="contract"
-									data-input-id="id_employment_type">
-									<span class="ml-2">Part time / Contract</span>
-								</span>
-								<div class="dropdown-divider"></div>
-								<span class="dropdown-item btn-sm filter-option" data-value=""
-									data-input-id="id_employment_type">
-									<span class="ml-2">Remove Filter</span>
-								</span>
-							</div>
+							<select class="form-select job-select" aria-label="Default select example">
+								<option selected>Employment</option>
+								<option value="1"><span>Full time</span></option>
+								<option value="2"><span>Part time / Contract</span></option>
+								<option value="3"><span>Remove Filter</span></option>
+							</select>
 						</div>
 						<input type="hidden" id="id_source" name="source" value="">
 						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
-							<div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
+							<select class="form-select job-select" aria-label="Default select example">
+								<option selected>Source</option>
+								<option value="1">Hacker News</option>
+								<option value="2">Github</option>
+								<option value="3">Stack Overflow</option>
+								<option value="4">Remote OK</option>
+								<option value="5">WeWorkRemotely</option>
+								<option value="6">Dribbble</option>
+								<option value="7">Coroflot</option>
+								<option value="8">Berlin Startup Jobs</option>
+								<option value="9">Cryptocurrencyjobs.co</option>
+								<option value="10">Remove Filter</option>
+							</select>
+							<!-- <div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
 								aria-expanded="false">
 								<span class="ml-2">Source</span>
 								<i class="fa fa-caret-down"></i>
@@ -176,112 +174,43 @@
 									data-input-id="id_source">
 									<span class="ml-2">Remove Filter</span>
 								</span>
-							</div>
+							</div> -->
 						</div>
 						<input type="hidden" id="id_funding" name="funding" value="">
 						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
-							<div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
-								aria-expanded="false">
-								<span class="ml-2">Funding</span>
-								<i class="fa fa-caret-down"></i>
-							</div>
-							<div class="dropdown-menu dropdown-menu-right">
-								<span class="dropdown-item btn-sm filter-option" data-value="0-10"
-									data-input-id="id_funding">
-									<span class="ml-2">$0-10M</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="11-50"
-									data-input-id="id_funding">
-									<span class="ml-2">$11-50M</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="51-200"
-									data-input-id="id_funding">
-									<span class="ml-2">$51-200M</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="201-500"
-									data-input-id="id_funding">
-									<span class="ml-2">$201-500M</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="500"
-									data-input-id="id_funding">
-									<span class="ml-2">&gt;$500M</span>
-								</span>
-								<div class="dropdown-divider"></div>
-								<span class="dropdown-item btn-sm filter-option" data-value=""
-									data-input-id="id_funding">
-									<span class="ml-2">Remove Filter</span>
-								</span>
-							</div>
+							<select class="form-select job-select" aria-label="Default select example">
+								<option selected>Funding</option>
+								<option value="1">$0-10M</option>
+								<option value="2">$11-50M</option>
+								<option value="3">$51-200M</option>
+								<option value="4">$201-500M</option>
+								<option value="5">&gt;$500M</option>
+								<option value="6">Remove Filter</option>
+							</select>
 						</div>
 						<input type="hidden" id="id_glassdoor_rating__gte" name="glassdoor_rating__gte" value="">
 						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
-							<div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
-								aria-expanded="false">
-								<span class="ml-2">Glassdoor rating</span>
-								<i class="fa fa-caret-down"></i>
-							</div>
-							<div class="dropdown-menu dropdown-menu-right">
-								<span class="dropdown-item btn-sm filter-option" data-value="1"
-									data-input-id="id_glassdoor_rating__gte">
-									<span class="ml-2">1+</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="2"
-									data-input-id="id_glassdoor_rating__gte">
-									<span class="ml-2">2+</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="3"
-									data-input-id="id_glassdoor_rating__gte">
-									<span class="ml-2">3+</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="4"
-									data-input-id="id_glassdoor_rating__gte">
-									<span class="ml-2">4+</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="5"
-									data-input-id="id_glassdoor_rating__gte">
-									<span class="ml-2">5</span>
-								</span>
-								<div class="dropdown-divider"></div>
-								<span class="dropdown-item btn-sm filter-option" data-value=""
-									data-input-id="id_glassdoor_rating__gte">
-									<span class="ml-2">Remove Filter</span>
-								</span>
-							</div>
+							<select class="form-select job-select" aria-label="Default select example">
+								<option selected>Glassdoor rating</option>
+								<option value="1">1+</option>
+								<option value="2">2+</option>
+								<option value="3">3+</option>
+								<option value="4">4+</option>
+								<option value="4">5</option>
+								<option value="5">Remove Filter</option>
+							</select>
 						</div>
 						<input type="hidden" id="id_employees" name="employees" value="">
 						<div class="mr-3 mr-sm-1 mt-4 mt-sm-2">
-							<div class="btn btn-clean  " data-toggle="dropdown" aria-haspopup="false"
-								aria-expanded="false">
-								<span class="ml-2">Employees</span>
-								<i class="fa fa-caret-down"></i>
-							</div>
-							<div class="dropdown-menu dropdown-menu-right">
-								<span class="dropdown-item btn-sm filter-option" data-value="1-10"
-									data-input-id="id_employees">
-									<span class="ml-2">1-10</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="11-50"
-									data-input-id="id_employees">
-									<span class="ml-2">11-50</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="51-100"
-									data-input-id="id_employees">
-									<span class="ml-2">51-100</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value="101-250"
-									data-input-id="id_employees">
-									<span class="ml-2">101-250</span>
-								</span>
-								<span class="dropdown-item btn-sm filter-option" data-value=">250"
-									data-input-id="id_employees">
-									<span class="ml-2">&gt;250</span>
-								</span>
-								<div class="dropdown-divider"></div>
-								<span class="dropdown-item btn-sm filter-option" data-value=""
-									data-input-id="id_employees">
-									<span class="ml-2">Remove Filter</span>
-								</span>
-							</div>
+							<select class="form-select job-select" aria-label="Default select example">
+								<option selected>Employees</option>
+								<option value="1">1-10</option>
+								<option value="2">11-50</option>
+								<option value="3">51-100</option>
+								<option value="4">101-250</option>
+								<option value="4">&gt;250</option>
+								<option value="5">Remove Filter</option>
+							</select>
 						</div>
 					</div>
 				</form>
