@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.scss'
 import { axios } from './utils/axios'
-import {response} from "express";
 
 /* axios.get()
   .then(res => console.log(res))
@@ -13,8 +12,6 @@ import {response} from "express";
 
 
 (function () {
-
-
 	const getJobs = (query) => {
 		//аксіос вертає проміс
 		return axios.get('', {
@@ -24,25 +21,39 @@ import {response} from "express";
 		})
 	}
 
+	const cardTarget = document.querySelector('#search-target')
+
 	//function which create cards with jobs
+  const createCardItem = (item) => {
+	  const div = document.createElement('div')
+    return div
+  }
 
-
-
+  const appendDiv = (nodes) => {
+    cardTarget.append(nodes)
+  }
 
   const searchForm = document.querySelector('#id_form');
   const searchField = document.querySelector('#id_search');
-  console.log(searchField);
   let searchValue = '';
+  const jobArray = []
+
   searchForm.addEventListener('submit', function(e) {
     e.preventDefault();
 		getJobs(searchValue)
 			.then(response => {
-				console.log(response)
+        response.data.results.forEach(el => {
+          jobArray.push(createCardItem(el))
+        })
 			})
 			.catch(error => console.error(error))
-    /*console.log(searchValue);*/
+      .finally(() => {
+        if (jobArray.length) {
+          console.log(jobArray)
+        }
+      })
   });
-  
+
   searchField.addEventListener('input', function(e) {
     searchValue = e.target.value;
     console.log(searchValue);
