@@ -1443,3 +1443,33 @@ iframe#_hjRemoteVarsFrame {
 .form-select.job-select option:first-child {
 	display: none;
 }
+
+.job-item {
+	display: block;
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.job-name {
+	display: flex;
+}
+
+.job-img {
+	width: 55px;
+	height: auto;
+	display: block;
+}
+
+.job-role {
+	margin-left: 20px;
+}
+
+.job-company {
+	color: coral;
+}
+
+.badge-box .badge-primary {
+	background-color: #e5f2ff;
+	color: #046eef;
+}
